@@ -22,7 +22,21 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    raise NotImplementedError
+    number_of_Xs = 0
+    number_of_0s = 0
+    
+    for array in board:
+        for item in array:
+            if item == X:
+                number_of_Xs += 1
+            if item == 0:
+                number_of_0s += 1
+    if number_of_Xs == number_of_0s:
+        return X # arbitrarily assigning player one the X symbol
+    elif number_of_Xs > number_of_0s:
+        return 0
+    else:
+        return X
 
 
 def actions(board):
