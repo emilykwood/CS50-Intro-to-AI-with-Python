@@ -106,17 +106,14 @@ def shortest_path(source, target):
         
         # If the node contains the target state, return the solution
         if node.state == target:
-            visited_node_actions = []
-            visited_node_states = []
+            path = []
             while node.parent is not None:
-                visited_node_actions.append(node.action)
-                visited_node_states.append(node.state)
+                path.append((node.action, node.state))
                 node = node.parent
 
             # Reverse to show the steps in order
-            visited_node_actions.reverse()
-            visited_node_states.reverse()
-            return visited_node_actions, visited_node_states
+            path.reverse()
+            return path
         
         # Add the node to the explored set
         explored_set.add(node.state)
